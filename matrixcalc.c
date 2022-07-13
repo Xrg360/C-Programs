@@ -1,85 +1,116 @@
-/*Write a menu driven program for performing matrix addition, multiplication and finding the transpose. Use functions to
-(i) read a matrix,
-(ii) find the sum of two matrices,
-(iii) find the product of two matrices,
-(iv) find the transpose of a matrix and
-(v) display a matrix*/
 #include<stdio.h>
-int m[10][10],n[10][10];
-void readMatrix(int m[][3],int r,int c){
-    int i,j;
-    for(i=0;i<r;i++){
-        for(j=0;j<c;j++){
-            printf("Enter the element at row %d and column %d: ",i+1,j+1);
-            scanf("%d",&m[i][j]);
-        }
-    }
+int i,j,k,r1,c1,r2,c2;
+int a[50][50],b[50][50];
+void read1();
+void read2();
+void display();
+void add();
+void product();
+void transpose();
+int main()
+{
+	int n;
+	printf("Select the Required MATRIX operation\n1. addition\n2. multiplication\n3. transpose\n4. exit\n");
+	scanf("%d",&n);
+	switch(n)
+	{
+		case 1:add();
+				break;
+		case 2:product();
+				break;
+		case 3:transpose();
+				break;
+		case 4:printf("Ok BYE");
+				break;
+		default :printf("invalid choice");
+	}
 }
-void displayMatrix(int m[][3],int r,int c){
-    int i,j;
-    for(i=0;i<r;i++){
-        for(j=0;j<c;j++){
-            printf("%d\t",m[i][j]);
-        }
-        printf("\n");
-    }
+void read1(int r,int c)
+{
+for(i=0;i<r;i++)
+		for(j=0;j<c;j++)
+		scanf("%d",&a[i][j]);
 }
-void sum(int m[][3],int n[][3],int r,int c){
-    int i,j;
-    for(i=0;i<r;i++){
-        for(j=0;j<c;j++){
-            m[i][j]=m[i][j]+n[i][j];
-        }
-    }
+void read2(int r,int c)
+{
+for(i=0;i<r;i++)
+		for(j=0;j<c;j++)
+		scanf("%d",&b[i][j]);
 }
-void matrixMultiplication(int m[][3],int n[][3],int r,int c){
-    int i,j,k,sum=0;
-    for(i=0;i<r;i++){
-        for(j=0;j<c;j++){
-            for(k=0;k<c;k++){
-                sum=sum+m[i][k]*n[k][j];
-            }
-            m[i][j]=sum;
-            sum=0;
-        }
-    }
-    printf
+void display(int R[][50],int p,int q)
+{
+	for(i=0;i<p;i++)
+	{
+		for(j=0;j<q;j++)
+		printf("%d ",R[i][j]);
+		printf("\n");
+	}
 }
-void Transpose(int m[][3],int r,int c){
-    int i,j,temp;
-    for(i=0;i<r;i++){
-        for(j=i+1;j<c;j++){
-            temp=m[i][j];
-            m[i][j]=m[j][i];
-            m[j][i]=temp;
-        }
-    }
+void add()
+{
+	printf("Enter rows and coloum of 1st matrix: ");
+	scanf("%d%d",&r1,&c1);
+	printf("Enter 1st matrix: ");
+	read1(r1,c1);
+	display(a,r1,c1);
+	printf("Enter rows and coloum of 2nd matrix: ");
+	scanf("%d%d",&r2,&c2);
+	printf("Enter 2nd matrix: ");
+	read2(r2,c2);
+	display(b,r2,c2);
+	if(r1==r2&&c1==c2)
+	{
+	int s[50][50];
+	for(i=0;i<r1;i++)
+		for(j=0;j<c1;j++)
+		s[i][j]=a[i][j]+b[i][j];
+	printf("The sum of given 2 matrices is :\n");
+	display(s,r1,c1);
+	}
+	else
+	printf("Addition operation cannot be performed");
+	
 }
-void main(){
-    int r,c,i,j,ch;
-    printf("Enter the number of rows : ");
-    scanf("%d",&r);
-    printf("Enter the number of columns : ");
-    scanf("%d",&c);
-    do{
-        scanf("%d",&ch);
-        swtch(ch){
-
-        case 1: readMatrix(m,r,c);
-                readMatrix(n,r,c);
-                break;
-        case 2 :displayMatrix(m,r,c);
-                displayMatrix(n,r,c);
-                break;
-        case 3: sum(m,n,r,c);
-                break;
-
-          case 4:
-            matrixMultiplication(m,n,r,c);
-            break;
-        
-            Transpose(m,r,c);
-            displayMatrix(m,r,c);
-        }
-    }while(ch!=0);
+void product()
+{
+	printf("Enter rows and coloum of 1st matrix: ");
+	scanf("%d%d",&r1,&c1);
+	printf("Enter 1st matrix: ");
+	read1(r1,c1);
+	display(a,r1,c1);
+	printf("Enter rows and coloum of 2nd matrix: ");
+	scanf("%d%d",&r2,&c2);
+	printf("Enter 2nd matrix: ");
+	read2(r2,c2);
+	display(b,r2,c2);
+	if(c1==r2)
+	{
+		int s[50][50];
+		for(i=0;i<r1;i++)
+			for(k=0;k<c2;k++)
+			{
+				s[i][k]=0;
+				for(j=0;j<c1;j++)
+				s[i][k]=s[i][k]+a[i][j]*b[j][k];
+			}
+		printf("The product of given 2 matrices is :\n");
+		display(s,r1,c2);
+	}
+	else
+	printf("Multiplication operation cannot be performed");
+}
+void transpose()
+{
+	printf("Enter rows and coloum the matrix: ");
+	scanf("%d%d",&r1,&c1);
+	printf("Enter the matrix: ");
+	read1(r1,c1);
+	display(a,r1,c1);
+	int s[50][50];
+	for(i=0;i<c1;i++)
+		for(j=0;j<r1;j++)
+		s[i][j]=a[j][i];
+	printf("The transpose of given matrix is :\n");
+		display(s,c1,r1);
+	
 }
