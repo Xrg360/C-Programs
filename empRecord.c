@@ -19,7 +19,7 @@ void main(){
         scanf("%f",&e[i].salary);
     }
     for(i=0;i<n;i++){
-        printf("\nName: %s\n",e[i].name);
+        printf("\nName: %s\t",e[i].name);
         printf("Id: %d\n",e[i].id);
         printf("Salary: %f\n",e[i].salary);
     }
