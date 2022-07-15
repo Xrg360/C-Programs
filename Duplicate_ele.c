@@ -1,4 +1,5 @@
-#include <stdio.h>    
+#include <stdio.h>   
+#include <string.h>
      
 int main()    
 {    
@@ -6,7 +7,7 @@ int main()
     int arr[] = {1, 2, 3, 4, 2, 7, 8, 8, 3};     
         
     //Calculate length of array arr    
-    int length = sizeof(arr)/sizeof(arr[0]);    
+    int length = strlen(arr);    
         
     printf("Duplicate elements in given array: \n");    
     //Searches for duplicate element    
