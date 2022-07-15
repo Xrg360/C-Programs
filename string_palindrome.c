@@ -6,8 +6,14 @@ void main(){
     char str[100];
     gets(str);
     int f=0;
-    int j=strlen(str)-1;
-  for(int i=0;i<strlen(str)/2;i++,j--){
+    int length =0;
+    int i=0;
+    while(str[i]!='\0'){
+      length++;
+      i++;
+    }
+    int j=length-1;
+  for(int i=0;i<length/2;i++,j--){
     if(str[i]!=str[j]){
       f=1;
       break;
