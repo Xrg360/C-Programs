@@ -1,0 +1,1 @@
+//Compute sum of the elements stored in an array using pointers and user defined function.
