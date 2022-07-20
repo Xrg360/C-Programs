@@ -1,26 +1,25 @@
-//11.Read two strings (each one ending with a $ symbol), store them in
-// arrays and concatenate them without using library functions.
+//Read a string (word), store it in an array and check whether it is a palindrome word or not.
 #include<stdio.h>
 void main()
 {
-    int i,j,n=0,m=0;
-    char str1[100],str2[100];
-    printf("Enter the first string\n");
-    scanf("%s",str1);
-    printf("Enter the second string\n");
-    scanf("%s",str2);
-    while(str1[n]!='$')
+    int i,j,n=0,flag=0;
+    char str[100];
+    printf("Enter the string\n");
+    scanf("%s",str);
+    while(str[n]!='\0')
     {
         n++;
     }
-    while(str2[m]!='$')
+    for(i=0,j=n-1;i<n/2;i++,j--)
     {
-        m++;
-    }    
-    for(i=0;i<m;i++)
-    {
-        str1[i+n]=str2[i];
+        if(str[i]!=str[j])
+        {
+            flag=1;
+            break;
+        }
     }
-    str1[n+m]='\0';
-    printf("The concatenated string is %s\n",str1);
+    if(flag==1)
+        printf("%s is not a palindrome word\n",str);
+    else
+        printf("%s is a palindrome word\n",str);
 }

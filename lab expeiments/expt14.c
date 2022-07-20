@@ -1,26 +1,21 @@
-//Using structure, read and print data of n employees (Name, Employee Id and Salary).
+//Read two inputs each representing the distances between two points in the Euclidean space, store these in structure variables, and add the two distance values.
 #include<stdio.h>
-struct empRecord{
-    char name[100];
-    int id;
-    float salary;
+#include<math.h>
+struct distance_calc{
+    int x,y;
 };
 void main(){
-    struct empRecord e[100];
-    int n,i;
-    printf("Enter the number of employees: ");
-    scanf("%d",&n);
-    for(i=0;i<n;i++){
-        printf("Enter the name: ");
-        scanf("%s",e[i].name);
-        printf("Enter the id: ");
-        scanf("%d",&e[i].id);
-        printf("Enter the salary: ");
-        scanf("%f",&e[i].salary);
-    }
-    for(i=0;i<n;i++){
-        printf("\nName: %s\t",e[i].name);
-        printf("Id: %d\n",e[i].id);
-        printf("Salary: %f\n",e[i].salary);
-    }
+    struct distance_calc d1,d2;
+    printf("Enter the first x: ");
+    scanf("%d",&d1.x);
+    printf("Enter the first y: ");
+    scanf("%d",&d1.y);
+    printf("Enter the second x: ");
+    scanf("%d",&d2.x);
+    printf("Enter the second y: ");
+    scanf("%d",&d2.y);
+    printf("\nfirst :(%d,%d)\n",d2.x,d2.y);
+    printf("\nsecond:(%d,%d)\n",d1.x,d1.y);
+    float d = sqrt(pow(d1.x-d2.x,2)+pow(d2.y-d1.y,2));
+    printf("The sum of the two distances is: %d",d);
 }

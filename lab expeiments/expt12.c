@@ -1,20 +1,26 @@
-//Read a string (ending with a $ symbol), store it in an array, and count the number of vowels, consonants, and spaces in it
+//11.Read two strings (each one ending with a $ symbol), store them in
+// arrays and concatenate them without using library functions.
 #include<stdio.h>
-#include<string.h>
-void main(){
-    char str[100];
-    int i,vowels=0,consonants=0,spaces=0;
-    printf("Enter the string: ");
-    scanf("%s",str);
-    for(i=0;str[i]!='$';i++){
-        if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u')
-            vowels++;
-        else if(str[i]==' ')
-            spaces++;
-        else
-            consonants++;
+void main()
+{
+    int i,j,n=0,m=0;
+    char str1[100],str2[100];
+    printf("Enter the first string\n");
+    scanf("%s",str1);
+    printf("Enter the second string\n");
+    scanf("%s",str2);
+    while(str1[n]!='$')
+    {
+        n++;
     }
-    printf("The number of vowels is: %d\n",vowels);
-    printf("The number of consonants is: %d\n",consonants);
-    printf("The number of spaces is: %d\n",spaces);
+    while(str2[m]!='$')
+    {
+        m++;
+    }    
+    for(i=0;i<m;i++)
+    {
+        str1[i+n]=str2[i];
+    }
+    str1[n+m]='\0';
+    printf("The concatenated string is %s\n",str1);
 }
