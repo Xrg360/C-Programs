@@ -15,7 +15,7 @@ void main(){
         c=str[i];
         for ( j = 0; j < len-1; j++)
         {
-            if(str[j]==c)
+            if(c==str[j])
                 count++;
         }
         if(count>largest){
