@@ -26,3 +26,4 @@ void main()
     scanf("%s", str);
     reverse(str);
 }
+

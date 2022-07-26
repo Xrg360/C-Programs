@@ -25,3 +25,5 @@ void swap(int *p,int *q)
     *q=temp;
     printf("The swapped numbers are: %d %d\n",*p,*q);
 }
+
+
