@@ -20,10 +20,15 @@ void main()
     {
         printf("%d\n", *(ptr + i));
     }
+    
+    printf("Sum of elements in array: %d\n", sum(ptr, n));
+}
+int sum(int *ptr, int n)
+{
     int sum = 0;
-    for (i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         sum = sum + *(ptr + i);
     }
-    printf("Sum of elements in array: %d\n", sum);
+    return sum;
 }
