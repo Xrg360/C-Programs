@@ -5,6 +5,7 @@ void main()
     int arr[100];
     int n, i;
     int * ptr = arr;    // Pointer to arr[0]
+    // int *ptr = &arr[0]; // Pointer to arr[0]
     printf("Enter size of array: ");
     scanf("%d", &n);
 
