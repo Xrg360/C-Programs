@@ -34,12 +34,10 @@ void display(int n)
     int i;
     for(i=0;i<n;i++)
     {
-        printf("\n");
         printf("\nName of the product: %s",p[i].name);
         printf("\nPrice of the product: %f",p[i].price);
         printf("\nQuantity of the product: %d",p[i].quantity);
         printf("\nTotal amount of the product: %f",p[i].total);
-        printf("\n");
     }
 }
 void main()
